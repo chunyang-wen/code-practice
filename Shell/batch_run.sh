@@ -1,7 +1,7 @@
-for i in `seq 12 1 20`
+for i in `seq -w 01 1 25`
 do
     date=201506"$i"
-    sh -x pre-process.sh $date
+    sh -x gen_data_mobile.sh $date
 done
 
 

@@ -7,11 +7,14 @@
 #   1. matched, delete the entire window
 #   2. not matched, delete the head of the window.
 
-# awk -vw=36 -vlb=32 -vla=3 -vp="your-pattern" -f pattern-delete.awk source > target
+# awk -vw=36 -vlb=num1 -vla=num2 -vp="your-pattern" -f pattern-delete.awk source > target
 # w: window size
 # lb: delete lines before pattern
 # lb: delete lines after pattern
 # p : pattern
+
+# for example, delete watermarks from it-ebooks.info
+# awk -vw=36 -vlb=32 -vla=3 -vp="\/URI (http:\/\/www.it-ebooks.info\/)" -f pattern-delete.awk  source > target
 
 BEGIN{
 	FS = "\n";

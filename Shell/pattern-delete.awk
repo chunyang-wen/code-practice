@@ -16,6 +16,9 @@
 # for example, delete watermarks from it-ebooks.info
 # awk -vw=36 -vlb=32 -vla=3 -vp="\/URI (http:\/\/www.it-ebooks.info\/)" -f pattern-delete.awk  source > target
 
+# For books from allitebooks, DO an inplace replacement.
+# sed -ibak '/allitebooks/d' {pdf-file}
+
 BEGIN{
 	FS = "\n";
 	OFS = "\t";

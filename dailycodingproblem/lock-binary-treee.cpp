@@ -27,12 +27,14 @@ bool lock(TreeNode* n) {
     bool can_be_locked = n->lock_count < 1;
     can_be_locked = can_be_locked && !is_locked(n->parent);
     if (!can_be_locked) return false;
-    n->is_locked = true;
     // n->lock_count = 0;
-    while (n->parent) {
-        n->parent->lock_count += 1;
-        n = n->parent;
+    if (!n->is_locked) {
+        while (n->parent) {
+            n->parent->lock_count += 1;
+            n = n->parent;
+        }
     }
+    n->is_locked = true;
     return true;
 }
 
